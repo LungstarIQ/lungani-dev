@@ -1,42 +1,51 @@
 "use client";
 
-import { useState } from "react";
+import { useTheme } from "@/components/ThemeContext";
 
 export default function Nav() {
-  const [mode, setMode] = useState<"formal" | "fun">("formal");
+  const { mode, setMode } = useTheme();
 
   return (
-    <nav className="term-box term-divider flex items-center justify-between px-5 py-3 border-b-2">
-      <span className="font-mono text-xs">lungani@lungani.dev</span>
+    <nav className="term-divider flex items-center justify-between px-8 py-4">
+      <span className="text-sm flex items-center gap-2">
+        <span
+          className="inline-block w-2 h-2 rounded-full"
+          style={{ backgroundColor: "var(--text-primary)" }}
+        />
+        lungani@lungani.dev
+      </span>
 
-      <div className="flex items-center gap-4 text-xs">
-        <a href="#work" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)]">
+      <div className="flex items-center gap-7 text-sm">
+        <a href="#work" className="hover:opacity-70">
           Work
         </a>
-        <a href="#stack" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)]">
+        <a href="#stack" className="hover:opacity-70">
           Stack
         </a>
-        <a href="#contact" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)]">
+        <a href="#contact" className="hover:opacity-70">
           Contact
         </a>
 
-        <div className="term-box flex overflow-hidden text-[10px] font-mono">
+        <div
+          className="flex text-[11px] overflow-hidden rounded-sm border"
+          style={{ borderColor: "var(--text-primary)" }}
+        >
           <button
             onClick={() => setMode("formal")}
-            className="px-2 py-1"
+            className="px-3 py-1.5"
             style={{
               backgroundColor: mode === "formal" ? "var(--text-primary)" : "transparent",
-              color: mode === "formal" ? "var(--surface)" : "var(--text-primary)",
+              color: mode === "formal" ? "var(--bg)" : "var(--text-primary)",
             }}
           >
             FORMAL
           </button>
           <button
             onClick={() => setMode("fun")}
-            className="px-2 py-1"
+            className="px-3 py-1.5"
             style={{
               backgroundColor: mode === "fun" ? "var(--text-primary)" : "transparent",
-              color: mode === "fun" ? "var(--surface)" : "var(--text-primary)",
+              color: mode === "fun" ? "var(--bg)" : "var(--text-primary)",
             }}
           >
             FUN
