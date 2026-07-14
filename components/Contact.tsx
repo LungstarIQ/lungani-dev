@@ -1,54 +1,88 @@
 export default function Contact() {
-  const links = [
-    { label: "Email me", href: "mailto:you@example.com" },
-    { label: "Download résumé", href: "#" },
-    { label: "GitHub ↗", href: "https://github.com/your-username" },
-    {
-      label: "LinkedIn ↗",
-      href: "https://www.linkedin.com/in/mkhize-thandanani-lungani",
-    },
-  ];
+  const email = "you@example.com";
+  const githubHandle = "your-username";
 
   return (
     <section
       id="contact"
-      className="border-t px-8 pt-8 pb-16"
+      className="border-t px-8 pt-8 pb-0"
       style={{ borderColor: "var(--text-primary)" }}
     >
-      <div className="flex items-start justify-between mb-6">
-        <div className="flex items-baseline gap-3">
-          <span className="text-xs" style={{ color: "var(--accent)" }}>
-            05
-          </span>
-          <h2 className="font-serif text-4xl">Get in touch</h2>
+      <div className="flex items-baseline gap-3 mb-6">
+        <span className="text-xs" style={{ color: "var(--accent)" }}>
+          05
+        </span>
+        <h2 className="font-serif text-4xl">Get in touch</h2>
+      </div>
+
+      <div className="border p-8 mb-10" style={{ borderColor: "var(--line)" }}>
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <p className="font-serif text-xl leading-snug max-w-xl">
+            <a
+              href={`mailto:${email}`}
+              className="hover:opacity-70"
+              style={{ color: "var(--accent)" }}
+            >
+              Hiring for a role that fits?
+            </a>{" "}
+            <span style={{ color: "var(--text-secondary)" }}>
+              I'd love to hear about it. I read everything and reply within a
+              day.
+            </span>
+          </p>
+
+          <div className="flex flex-wrap gap-3 shrink-0">
+            <a
+              href={`mailto:${email}`}
+              className="text-sm px-5 py-2.5"
+              style={{ backgroundColor: "var(--text-primary)", color: "var(--bg)" }}
+            >
+              Email me
+            </a>
+            <a
+              href="/resume.pdf"
+              className="text-sm px-5 py-2.5 border"
+              style={{ borderColor: "var(--line)" }}
+            >
+              Download résumé
+            </a>
+            <a
+              href={`https://github.com/${githubHandle}`}
+              className="text-sm px-5 py-2.5 border"
+              style={{ borderColor: "var(--line)" }}
+            >
+              GitHub ↗
+            </a>
+          </div>
         </div>
-        <p className="term-label">$ echo $CONTACT</p>
       </div>
 
-      <p
-        className="font-serif text-lg leading-snug max-w-lg mb-6"
-        style={{ color: "var(--text-secondary)" }}
+      <div
+        className="flex flex-col sm:flex-row justify-between gap-2 py-6 border-t text-xs"
+        style={{ borderColor: "var(--line)", color: "var(--text-muted)" }}
       >
-        Open to full-stack roles, remote or on-site. Always happy to talk
-        about a project, a role, or just software.
-      </p>
-
-      <div className="flex flex-wrap gap-3">
-        {links.map((l) => (
-          <a
-            key={l.label}
-            href={l.href}
-            className="text-sm px-4 py-2 border rounded-sm hover:opacity-70"
-            style={{ borderColor: "var(--text-primary)" }}
-          >
-            {l.label}
+        <p>
+          © 2026{" "}
+          <a href="#hero" className="hover:opacity-70" style={{ color: "var(--text-muted)" }}>
+            Lungani Mkhize
+          </a>{" "}
+          · <a href="/" className="hover:opacity-70" style={{ color: "var(--text-muted)" }}>lungani.dev</a>
+        </p>
+        <div className="flex gap-4">
+          <a href={`mailto:${email}`} className="hover:opacity-70">
+            {email}
           </a>
-        ))}
+          <a
+            href={`https://github.com/${githubHandle}`}
+            className="hover:opacity-70"
+          >
+            github/{githubHandle}
+          </a>
+          <a href="/resume.pdf" className="hover:opacity-70">
+            résumé.pdf
+          </a>
+        </div>
       </div>
-
-      <p className="term-label mt-12" style={{ color: "var(--text-muted)" }}>
-        © 2026 Lungani Mkhize · lungani.dev
-      </p>
     </section>
   );
 }
