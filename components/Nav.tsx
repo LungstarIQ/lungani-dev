@@ -6,33 +6,35 @@ export default function Nav() {
   const { mode, setMode } = useTheme();
 
   return (
-    <nav className="term-divider flex items-center justify-between px-8 py-4">
-      <span className="text-sm flex items-center gap-2">
+    <nav className="term-divider flex items-center justify-between px-4 sm:px-8 py-3 sm:py-4">
+      <span className="text-xs sm:text-sm flex items-center gap-2 truncate">
         <span
-          className="inline-block w-2 h-2 rounded-full"
+          className="inline-block w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full shrink-0"
           style={{ backgroundColor: "var(--text-primary)" }}
         />
-        lungani@lungani.dev
+        <span className="truncate">lungani@lungani.dev</span>
       </span>
 
-      <div className="flex items-center gap-7 text-sm">
-        <a href="#work" className="hover:opacity-70">
-          Work
-        </a>
-        <a href="#stack" className="hover:opacity-70">
-          Stack
-        </a>
-        <a href="#contact" className="hover:opacity-70">
-          Contact
-        </a>
+      <div className="flex items-center gap-3 sm:gap-7 text-sm shrink-0">
+        <div className="hidden sm:flex items-center gap-7">
+          <a href="#work" className="hover:opacity-70">
+            Work
+          </a>
+          <a href="#stack" className="hover:opacity-70">
+            Stack
+          </a>
+          <a href="#contact" className="hover:opacity-70">
+            Contact
+          </a>
+        </div>
 
         <div
-          className="flex text-[11px] overflow-hidden rounded-sm border"
+          className="flex text-[10px] sm:text-[11px] overflow-hidden rounded-sm border"
           style={{ borderColor: "var(--text-primary)" }}
         >
           <button
             onClick={() => setMode("formal")}
-            className="px-3 py-1.5"
+            className="px-2 sm:px-3 py-1 sm:py-1.5"
             style={{
               backgroundColor: mode === "formal" ? "var(--text-primary)" : "transparent",
               color: mode === "formal" ? "var(--bg)" : "var(--text-primary)",
@@ -42,7 +44,7 @@ export default function Nav() {
           </button>
           <button
             onClick={() => setMode("fun")}
-            className="px-3 py-1.5"
+            className="px-2 sm:px-3 py-1 sm:py-1.5"
             style={{
               backgroundColor: mode === "fun" ? "var(--text-primary)" : "transparent",
               color: mode === "fun" ? "var(--bg)" : "var(--text-primary)",
